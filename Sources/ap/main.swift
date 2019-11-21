@@ -41,7 +41,7 @@ do {
                          completion: ShellCompletion.values([
                             ("Ramirez","Like the dev Derik Ramirez"),
                             ("Garcia", "Like the writer Gabriel Garcia Marquez"),
-                            ("Allende", "Like the Writer Isable Allende")]))
+                            ("Allende", "Like the Writer Isabel Allende")]))
 
 
   let argsv = Array(CommandLine.arguments.dropFirst())
