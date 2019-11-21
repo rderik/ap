@@ -3,18 +3,45 @@ import Basic      // For Basic.stdoutStream
 import SPMUtility
 
 do {
-  let parser = ArgumentParser(commandName: "ap", usage: "ap", overview: "The command is used for argument parsing", seeAlso: "getopt(1)")
+  let parser = ArgumentParser(commandName: "ap",
+                         usage: "ap",
+                         overview: "The command is used for argument parsing",
+                         seeAlso: "getopt(1)")
 
-  let input = parser.add(option: "--input", shortName: "-i", kind: String.self, usage: "A filename containing words", completion: .filename)
+  let input = parser.add(option: "--input",
+                         shortName: "-i",
+                         kind: String.self,
+                         usage: "A filename containing words",
+                         completion: .filename)
 
-  let generateBashCompletion = parser.add(option: "--generate-bash-completion", shortName: "-g", kind: Bool.self, usage: "Generates bash completion script", completion: ShellCompletion.none)
+  let generateBashCompletion = parser.add(option: "--generate-bash-completion",
+                         shortName: "-g",
+                         kind: Bool.self,
+                         usage: "Generates bash completion script",
+                         completion: ShellCompletion.none)
 
 
-  let message = parser.add(positional: "message", kind: String.self, optional: true, usage: "This is what the message should say", completion: ShellCompletion.none)
+  let message = parser.add(positional: "message",
+                         kind: String.self,
+                         optional: true,
+                         usage: "This is what the message should say",
+                         completion: ShellCompletion.none)
 
-  let names = parser.add(option: "--names", shortName: "-n", kind: [String].self, strategy: .oneByOne, usage: "Multiple names", completion: ShellCompletion.none)
+  let names = parser.add(option: "--names",
+                         shortName: "-n",
+                         kind: [String].self,
+                         strategy: .oneByOne,
+                         usage: "Multiple names",
+                         completion: ShellCompletion.none)
 
-  let lastNames = parser.add(option: "--last-names", shortName: "-l", kind: String.self, usage: "List of last names", completion: ShellCompletion.values([("Ramirez","Like the dev Derik Ramirez"), ("Garcia", "Like the writer Gabriel Garcia Marquez"), ("Allende", "Like the Writer Isable Allende")]))
+  let lastNames = parser.add(option: "--last-names",
+                         shortName: "-l",
+                         kind: String.self,
+                         usage: "List of last names",
+                         completion: ShellCompletion.values([
+                            ("Ramirez","Like the dev Derik Ramirez"),
+                            ("Garcia", "Like the writer Gabriel Garcia Marquez"),
+                            ("Allende", "Like the Writer Isable Allende")]))
 
 
   let argsv = Array(CommandLine.arguments.dropFirst())
