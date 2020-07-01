@@ -1,6 +1,6 @@
 import Foundation // For EXIT_SUCCESS
-import Basic      // For Basic.stdoutStream
-import SPMUtility
+import TSCBasic      // For Basic.stdoutStream
+import TSCUtility
 
 do {
   let parser = ArgumentParser(commandName: "ap",
@@ -48,7 +48,7 @@ do {
   let parguments = try parser.parse(argsv)
 
   if let generate = parguments.get(generateBashCompletion), generate {
-    let stdoutStream = Basic.stdoutStream
+    let stdoutStream = TSCBasic.stdoutStream
     stdoutStream <<< """
     #!/bin/bash
 

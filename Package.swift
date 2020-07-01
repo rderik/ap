@@ -8,12 +8,12 @@ let package = Package(
     name: "ap",
     dependencies: [
         .package(url: "https://github.com/apple/swift-package-manager.git",
-                 from: "0.5.0"),
+                 from: "0.6.0"),
     ],
     targets: [
         .target(
             name: "ap",
-            dependencies: ["SPMUtility"]),
+            dependencies: ["SwiftPM"]),
         .testTarget(
             name: "apTests",
             dependencies: ["ap"]),
